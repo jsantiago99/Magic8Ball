@@ -14,11 +14,22 @@ class ViewController: UIViewController {
 
     @IBOutlet weak var ballImage: UIImageView!
     
-
+    
     @IBAction func askMeButtonPress(_ sender: UIButton) {
+        
         ballImage.image = ballArray.randomElement();
+    
+        Timer.scheduledTimer(timeInterval: 2, target: self, selector: #selector(clearImage), userInfo: nil, repeats: false)
+        
+        
         
     }
+    
+    @objc func clearImage() {
+        ballImage.image = nil;
+    }
+        
+        
     
 }
 
